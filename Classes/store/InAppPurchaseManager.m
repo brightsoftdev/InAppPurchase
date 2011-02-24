@@ -1,3 +1,32 @@
+/* 
+ *
+ * Copyright (c) 2011, Aaron Boxer
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ *   * Redistributions of source code must retain the above copyright notice,
+ *     this list of conditions and the following disclaimer.
+ *   * Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ *   * Neither the name of Redis nor the names of its contributors may be used
+ *     to endorse or promote products derived from this software without
+ *     specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
 
 
 #import "InAppPurchaseManager.h"
@@ -18,20 +47,13 @@ static NSString* const KEYCHAIN_SERVICE_NAME = @"MY_STORE_NAME";
 - (void)loadStore;
 - (void)requestProductData:(NSArray*)productIds;
 - (BOOL) validateReceipt:(SKPaymentTransaction*)transaction;
-
 - (void)completeTransaction:(SKPaymentTransaction *)transaction;
 - (void)restoreTransaction:(SKPaymentTransaction *)transaction;
 - (void)failedTransaction:(SKPaymentTransaction *)transaction;
-
-
 -(void)updateProgress:(NSTimer*)timer;
-
 -(void) notifyProductsFetched;
-
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex;
-
 -(void) checkNeedsRestore;
-
 @end
 
 
@@ -44,9 +66,6 @@ NSString*  const kInAppPurchaseManagerProductsFetchedNotification = @"kInAppPurc
 NSString*  const kInAppPurchaseManagerCanProvideContent = @"kInAppPurchaseManagerCanProvideContent";
 NSString*  const kInAppPurchaseManagerTransactionInProgressNotification = @"kInAppPurchaseManagerTransactionInProgressNotification";
 NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAppPurchaseManagerTransactionInitiatedNotification";
-
-
-
 
 @synthesize products, progress;
 
@@ -96,9 +115,7 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 		NSString* msg = @"Would you like to check the App Store for previously purchased video content?";
 		UIAlertView * alert = [[[UIAlertView alloc] initWithTitle:title message:msg delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK",nil] autorelease];
 		[alert show];	
-	}	
-	
-	
+	}			
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex{
@@ -110,7 +127,6 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 	}
 
 }
-
 
 -(void) dealloc{
 	
@@ -170,7 +186,7 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 	if (restoreAttempts == 1)
 	  msg = @"An attempt to restore previously purchased content has failed. Trying again";
 	else
-		 msg = @"Two attempt to restore previously purchased content have failed. Please re-install app";
+		 msg = @"Two attempts to restore previously purchased content have failed. Please re-install app";
 	UIAlertView * alert = [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
 	[alert show];
 	if (restoreAttempts == 1){
@@ -269,7 +285,7 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 {
 	
 	NSError* error;
-	NSString* pass = [SFHFKeychainUtils getPasswordForUsername:KEYCHAIN_PRODUCT_ID_USER andServiceName:@"ca.cbc" error:&error];
+	NSString* pass = [SFHFKeychainUtils getPasswordForUsername:KEYCHAIN_PRODUCT_ID_USER andServiceName:KEYCHAIN_SERVICE_NAME error:&error];
 
 	NSString* newPass;
 	NSString* productID = transaction.payment.productIdentifier; 
@@ -372,7 +388,7 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 
 
 //
-// called when the transaction was successful
+// called when the transaction was successfull
 //
 - (void)completeTransaction:(SKPaymentTransaction *)transaction
 {
@@ -472,11 +488,9 @@ NSString*  const kInAppPurchaseManagerTransactionInitiatedNotification = @"kInAp
 
 }
 
-
 +(void) setNeedsRestore:(BOOL)needs{
 	needsRestore = needs;;	
 }
-
 
 +(BOOL) needsRestore{
 	
