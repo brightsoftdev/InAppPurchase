@@ -13,8 +13,46 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
-		F1B55F7813144FFC00E7D29D /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B55F7713144FFC00E7D29D /* StoreViewController.m */; };
+		F16DE4B6131575E90097C627 /* Products.plist in Resources */ = {isa = PBXBuildFile; fileRef = F16DE4B5131575E90097C627 /* Products.plist */; };
+		F16DE50A13157F6C0097C627 /* Bought_Check_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = F16DE50613157F6C0097C627 /* Bought_Check_btn.png */; };
+		F16DE50B13157F6C0097C627 /* btn_lrg-disabled.png in Resources */ = {isa = PBXBuildFile; fileRef = F16DE50713157F6C0097C627 /* btn_lrg-disabled.png */; };
+		F16DE50C13157F6C0097C627 /* btn_lrg-enabled.png in Resources */ = {isa = PBXBuildFile; fileRef = F16DE50813157F6C0097C627 /* btn_lrg-enabled.png */; };
+		F16DE50D13157F6C0097C627 /* btn_lrg-pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = F16DE50913157F6C0097C627 /* btn_lrg-pressed.png */; };
+		F1B560001314559B00E7D29D /* libSimStoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B55FF21314552000E7D29D /* libSimStoreKit.a */; };
+		F1B560C9131458FC00E7D29D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B560C8131458FC00E7D29D /* StoreKit.framework */; };
+		F1B560F013145A0100E7D29D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1B560EF13145A0100E7D29D /* Security.framework */; };
+		F1B561A313145DA300E7D29D /* InAppPurchaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5619713145DA300E7D29D /* InAppPurchaseManager.m */; };
+		F1B561A413145DA300E7D29D /* NSNotificationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5619913145DA300E7D29D /* NSNotificationAdditions.m */; };
+		F1B561A513145DA300E7D29D /* NSString+NSStringAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5619B13145DA300E7D29D /* NSString+NSStringAdditions.m */; };
+		F1B561A613145DA300E7D29D /* SFHFKeychainUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5619D13145DA300E7D29D /* SFHFKeychainUtils.m */; };
+		F1B561A713145DA300E7D29D /* SKProduct+LocalizedPrice.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5619F13145DA300E7D29D /* SKProduct+LocalizedPrice.m */; };
+		F1B561A813145DA300E7D29D /* StoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B561A213145DA300E7D29D /* StoreViewController.m */; };
+		F1B5627D131465F600E7D29D /* StoreTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F1B5627C131465F600E7D29D /* StoreTableCell.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1B55FF11314552000E7D29D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D2AAC07E0554694100DB518D;
+			remoteInfo = SimStoreKit;
+		};
+		F1B55FF31314552000E7D29D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 15491D341119C715000CE8BB;
+			remoteInfo = TestApp;
+		};
+		F1B55FF51314558800E7D29D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = SimStoreKit;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -27,8 +65,29 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		32CA4F630368D1EE00C91783 /* InAppPurchase_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchase_Prefix.pch; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* InAppPurchase-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "InAppPurchase-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
-		F1B55F7613144FFC00E7D29D /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
-		F1B55F7713144FFC00E7D29D /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		F16DE4B5131575E90097C627 /* Products.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Products.plist; sourceTree = "<group>"; };
+		F16DE50613157F6C0097C627 /* Bought_Check_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bought_Check_btn.png; sourceTree = "<group>"; };
+		F16DE50713157F6C0097C627 /* btn_lrg-disabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_lrg-disabled.png"; sourceTree = "<group>"; };
+		F16DE50813157F6C0097C627 /* btn_lrg-enabled.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_lrg-enabled.png"; sourceTree = "<group>"; };
+		F16DE50913157F6C0097C627 /* btn_lrg-pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_lrg-pressed.png"; sourceTree = "<group>"; };
+		F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SimStoreKit.xcodeproj; path = lib/simstorekit/SimStoreKit.xcodeproj; sourceTree = "<group>"; };
+		F1B560C8131458FC00E7D29D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		F1B560EF13145A0100E7D29D /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		F1B5619613145DA300E7D29D /* InAppPurchaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InAppPurchaseManager.h; sourceTree = "<group>"; };
+		F1B5619713145DA300E7D29D /* InAppPurchaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InAppPurchaseManager.m; sourceTree = "<group>"; };
+		F1B5619813145DA300E7D29D /* NSNotificationAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNotificationAdditions.h; sourceTree = "<group>"; };
+		F1B5619913145DA300E7D29D /* NSNotificationAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSNotificationAdditions.m; sourceTree = "<group>"; };
+		F1B5619A13145DA300E7D29D /* NSString+NSStringAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+NSStringAdditions.h"; sourceTree = "<group>"; };
+		F1B5619B13145DA300E7D29D /* NSString+NSStringAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+NSStringAdditions.m"; sourceTree = "<group>"; };
+		F1B5619C13145DA300E7D29D /* SFHFKeychainUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFHFKeychainUtils.h; sourceTree = "<group>"; };
+		F1B5619D13145DA300E7D29D /* SFHFKeychainUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SFHFKeychainUtils.m; sourceTree = "<group>"; };
+		F1B5619E13145DA300E7D29D /* SKProduct+LocalizedPrice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKProduct+LocalizedPrice.h"; sourceTree = "<group>"; };
+		F1B5619F13145DA300E7D29D /* SKProduct+LocalizedPrice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKProduct+LocalizedPrice.m"; sourceTree = "<group>"; };
+		F1B561A013145DA300E7D29D /* Store.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Store.h; sourceTree = "<group>"; };
+		F1B561A113145DA300E7D29D /* StoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreViewController.h; sourceTree = "<group>"; };
+		F1B561A213145DA300E7D29D /* StoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreViewController.m; sourceTree = "<group>"; };
+		F1B5627B131465F600E7D29D /* StoreTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreTableCell.h; sourceTree = "<group>"; };
+		F1B5627C131465F600E7D29D /* StoreTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,9 +95,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1B560001314559B00E7D29D /* libSimStoreKit.a in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
+				F1B560C9131458FC00E7D29D /* StoreKit.framework in Frameworks */,
+				F1B560F013145A0100E7D29D /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +110,11 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F1B5627B131465F600E7D29D /* StoreTableCell.h */,
+				F1B5627C131465F600E7D29D /* StoreTableCell.m */,
+				F1B5619513145DA300E7D29D /* store */,
+				F1B561A113145DA300E7D29D /* StoreViewController.h */,
+				F1B561A213145DA300E7D29D /* StoreViewController.m */,
 				1D3623240D0F684500981E51 /* InAppPurchaseAppDelegate.h */,
 				1D3623250D0F684500981E51 /* InAppPurchaseAppDelegate.m */,
 			);
@@ -65,13 +132,12 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				F1B55F7613144FFC00E7D29D /* StoreViewController.h */,
-				F1B55F7713144FFC00E7D29D /* StoreViewController.m */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -88,6 +154,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F16DE50613157F6C0097C627 /* Bought_Check_btn.png */,
+				F16DE50713157F6C0097C627 /* btn_lrg-disabled.png */,
+				F16DE50813157F6C0097C627 /* btn_lrg-enabled.png */,
+				F16DE50913157F6C0097C627 /* btn_lrg-pressed.png */,
+				F16DE4B5131575E90097C627 /* Products.plist */,
 				28AD733E0D9D9553002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* InAppPurchase-Info.plist */,
 			);
@@ -100,8 +171,37 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
+				F1B560C8131458FC00E7D29D /* StoreKit.framework */,
+				F1B560EF13145A0100E7D29D /* Security.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F1B55FEA1314552000E7D29D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F1B55FF21314552000E7D29D /* libSimStoreKit.a */,
+				F1B55FF41314552000E7D29D /* TestApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F1B5619513145DA300E7D29D /* store */ = {
+			isa = PBXGroup;
+			children = (
+				F1B5619613145DA300E7D29D /* InAppPurchaseManager.h */,
+				F1B5619713145DA300E7D29D /* InAppPurchaseManager.m */,
+				F1B5619813145DA300E7D29D /* NSNotificationAdditions.h */,
+				F1B5619913145DA300E7D29D /* NSNotificationAdditions.m */,
+				F1B5619A13145DA300E7D29D /* NSString+NSStringAdditions.h */,
+				F1B5619B13145DA300E7D29D /* NSString+NSStringAdditions.m */,
+				F1B5619C13145DA300E7D29D /* SFHFKeychainUtils.h */,
+				F1B5619D13145DA300E7D29D /* SFHFKeychainUtils.m */,
+				F1B5619E13145DA300E7D29D /* SKProduct+LocalizedPrice.h */,
+				F1B5619F13145DA300E7D29D /* SKProduct+LocalizedPrice.m */,
+				F1B561A013145DA300E7D29D /* Store.h */,
+			);
+			path = store;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +218,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				F1B55FF61314558800E7D29D /* PBXTargetDependency */,
 			);
 			name = InAppPurchase;
 			productName = InAppPurchase;
@@ -141,6 +242,12 @@
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = F1B55FEA1314552000E7D29D /* Products */;
+					ProjectRef = F1B55FE91314552000E7D29D /* SimStoreKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* InAppPurchase */,
@@ -148,12 +255,34 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		F1B55FF21314552000E7D29D /* libSimStoreKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSimStoreKit.a;
+			remoteRef = F1B55FF11314552000E7D29D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F1B55FF41314552000E7D29D /* TestApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = TestApp.app;
+			remoteRef = F1B55FF31314552000E7D29D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		1D60588D0D05DD3D006BFB54 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
+				F16DE4B6131575E90097C627 /* Products.plist in Resources */,
+				F16DE50A13157F6C0097C627 /* Bought_Check_btn.png in Resources */,
+				F16DE50B13157F6C0097C627 /* btn_lrg-disabled.png in Resources */,
+				F16DE50C13157F6C0097C627 /* btn_lrg-enabled.png in Resources */,
+				F16DE50D13157F6C0097C627 /* btn_lrg-pressed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,11 +295,25 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* InAppPurchaseAppDelegate.m in Sources */,
-				F1B55F7813144FFC00E7D29D /* StoreViewController.m in Sources */,
+				F1B561A313145DA300E7D29D /* InAppPurchaseManager.m in Sources */,
+				F1B561A413145DA300E7D29D /* NSNotificationAdditions.m in Sources */,
+				F1B561A513145DA300E7D29D /* NSString+NSStringAdditions.m in Sources */,
+				F1B561A613145DA300E7D29D /* SFHFKeychainUtils.m in Sources */,
+				F1B561A713145DA300E7D29D /* SKProduct+LocalizedPrice.m in Sources */,
+				F1B561A813145DA300E7D29D /* StoreViewController.m in Sources */,
+				F1B5627D131465F600E7D29D /* StoreTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F1B55FF61314558800E7D29D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SimStoreKit;
+			targetProxy = F1B55FF51314558800E7D29D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -182,6 +325,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = InAppPurchase_Prefix.pch;
+				HEADER_SEARCH_PATHS = lib/simstorekit;
 				INFOPLIST_FILE = "InAppPurchase-Info.plist";
 				PRODUCT_NAME = InAppPurchase;
 			};
@@ -194,6 +338,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = InAppPurchase_Prefix.pch;
+				HEADER_SEARCH_PATHS = lib/simstorekit;
 				INFOPLIST_FILE = "InAppPurchase-Info.plist";
 				PRODUCT_NAME = InAppPurchase;
 				VALIDATE_PRODUCT = YES;

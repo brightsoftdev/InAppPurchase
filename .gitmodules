@@ -1,0 +1,3 @@
+[submodule "lib/simstorekit"]
+	path = lib/simstorekit
+	url = https://github.com/millenomi/simstorekit.git

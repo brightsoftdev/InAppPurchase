@@ -1,12 +1,18 @@
-//
-//  StoreViewController.m
-//  InAppPurchase
-//
-//  Created by Aaron Boxer on 11-02-22.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
+
 
 #import "StoreViewController.h"
+#import "StoreTableCell.h"
+
+@interface StoreViewController (private)
+- (void)purchaseInitiated:(NSNotification *)notif;
+- (void)purchaseInProgress:(NSNotification *)notif;
+- (void)productPurchased:(NSNotification *)notif;
+- (void)purchaseFailed:(NSNotification *)notif;
+- (void)purchaseCancelled:(NSNotification *)notif;
+- (void)productsFetched:(NSNotification *)notif;
+-(void) purchaseCleanup:(NSNotification*)notif;
+@end
+
 
 
 @implementation StoreViewController
@@ -42,21 +48,100 @@
     [super viewWillAppear:animated];
 }
 */
-/*
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+	
+	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+	
+	[center addObserver:self selector:@selector(purchaseInitiated:)
+				   name:kInAppPurchaseManagerTransactionInitiatedNotification object:nil];
+	
+	[center addObserver:self selector:@selector(purchaseInProgress:)
+				   name:kInAppPurchaseManagerTransactionInProgressNotification object:nil];
+	
+	[center addObserver:self selector:@selector(productPurchased:)
+				   name:kInAppPurchaseManagerTransactionSucceededNotification object:nil];
+	
+	[center addObserver:self selector:@selector(purchaseCancelled:)
+				   name:kInAppPurchaseManagerTransactionFailedNotification object:nil];
+	
+	[center addObserver:self selector:@selector(purchaseCancelled:)
+				   name:kInAppPurchaseManagerTransactionCancelledNotification object:nil];
+	
+	[center addObserver:self selector:@selector(productsFetched:) 
+				   name:kInAppPurchaseManagerProductsFetchedNotification object:nil];
+	
+	NSArray* visible = self.tableView.visibleCells;
+	for (StoreTableCell* cell in visible)
+			[cell update];
+	
 }
-*/
+
 /*
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
 }
 */
-/*
+
 - (void)viewDidDisappear:(BOOL)animated {
+	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+	[center removeObserver:self name:kInAppPurchaseManagerTransactionInitiatedNotification object:nil];
+	[center removeObserver:self name:kInAppPurchaseManagerTransactionInProgressNotification object:nil];	
+	[center removeObserver:self name:kInAppPurchaseManagerTransactionSucceededNotification object:nil];
+	[center removeObserver:self name:kInAppPurchaseManagerTransactionFailedNotification object:nil];
+	[center removeObserver:self name:kInAppPurchaseManagerTransactionCancelledNotification object:nil];
+	[center removeObserver:self name:kInAppPurchaseManagerProductsFetchedNotification object:nil];	
     [super viewDidDisappear:animated];
 }
-*/
+
+- (void)purchaseInProgress:(NSNotification *)notif{
+    for (StoreTableCell* cell in self.tableView.visibleCells){
+		[cell addProgress];
+	}
+}
+- (void)productPurchased:(NSNotification *)notif{
+	[self purchaseCleanup:notif];
+	[self.tableView reloadData];
+	
+}
+- (void)purchaseFailed:(NSNotification *)notif{
+	[self purchaseCleanup:notif];	
+	NSString* title = @"Purchase Failure";
+	NSString* msg = @"Purchase Failure";
+	UIAlertView * alert = [[[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"Dismiss" otherButtonTitles:nil] autorelease];
+	[alert show];
+}
+
+- (void)purchaseCancelled:(NSNotification *)notif{
+	[self purchaseCleanup:notif];	
+	
+}
+
+- (void)productsFetched:(NSNotification *)notif{
+	for (StoreTableCell* cell in self.tableView.visibleCells){
+		[cell update];
+	}
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:kInAppPurchaseManagerProductsFetchedNotification object:nil];
+	
+}
+
+- (void)purchaseInitiated:(NSNotification *)notif{
+	for (StoreTableCell* cell in self.tableView.visibleCells){
+		[cell update];
+	}
+}
+
+-(void) purchaseCleanup:(NSNotification*)notif;{
+	SKPaymentTransaction* transaction = [notif.userInfo valueForKey:@"transaction"];
+	NSString* productID = transaction.payment.productIdentifier;
+	//stop progress on cells
+	for (StoreTableCell* cell in self.tableView.visibleCells)
+		[cell purchaseCleanup:productID];
+	
+}
+
+
 /*
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -65,6 +150,12 @@
 }
 */
 
+
+- (CGFloat) tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	CGFloat height = 100;
+	return height;	
+}
 
 #pragma mark -
 #pragma mark Table view data source
@@ -77,7 +168,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 5;
+    return 1;
 }
 
 
@@ -88,7 +179,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[StoreTableCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
     // Configure the cell...

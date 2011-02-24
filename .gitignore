@@ -1,1 +1,4 @@
 build
+*.move1v3
+*.pbxuser
+.DS_Store

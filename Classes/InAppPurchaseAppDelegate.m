@@ -1,16 +1,9 @@
-//
-//  InAppPurchaseAppDelegate.m
-//  InAppPurchase
-//
-//  Created by Aaron Boxer on 11-02-22.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
 
 #import "InAppPurchaseAppDelegate.h"
 
 @implementation InAppPurchaseAppDelegate
 
-@synthesize window;
+@synthesize window, purchaseManager;
 
 
 #pragma mark -
@@ -18,7 +11,25 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     
+	
+#ifdef TARGET_IPHONE_SIMULATOR	
+	// for testing purposes, read in sampe products from plist
+	setenv("ILSimSKProductsPlist", [[[NSBundle mainBundle] pathForResource:@"Products" ofType:@"plist"] fileSystemRepresentation], 1);
+	
+	NSString* productsFile = [[[NSProcessInfo processInfo] environment] objectForKey:kILSimSKProductsPlistEnvironmentVariable];
+	NSDictionary* d = productsFile? [NSDictionary dictionaryWithContentsOfFile:productsFile] : nil;
+	
+#endif
+	
     // Override point for customization after application launch.
+	purchaseManager = [[InAppPurchaseManager alloc] initWithIds:[d allKeys] ];
+
+	//!!! for testing purposes, clear already purchased
+#ifdef TARGET_IPHONE_SIMULATOR
+	
+	[purchaseManager clearAlreadyPurchased];
+#endif
+	
     
     [window makeKeyAndVisible];
 	storeController = [StoreViewController new];
@@ -78,6 +89,7 @@
 
 - (void)dealloc {
 	[storeController release];
+	[InAppPurchaseManager release];
     [window release];
     [super dealloc];
 }
