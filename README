@@ -1,0 +1,18 @@
+This project will connect to the app store's in app purchase service. 
+Unlike the StoreKit framework, it will also work in the iOS simulator,
+using the SimStoreKit simulator library.
+
+CLONING
+
+After cloning, you must initialize the git submodule:
+
+$ git submodule init
+$ git submodule update
+
+NOTE:
+
+Products that have already been purchased are stored in the keyring.
+For testing purchases, these entries are wiped whenever the test app
+starts. Do not do this in production code.
+
+
