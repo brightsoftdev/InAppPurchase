@@ -1,5 +1,10 @@
-This project will connect to the app store's in app purchase service. 
-Unlike the StoreKit framework, it will also work in the iOS simulator,
+This project will connect to the app store's in app purchase service,
+and allow app to purchase products, and manage already purchased products.
+
+I've also added some bells and whistles, like a progress bar for while the purchase
+is in progress.
+
+Unlike the StoreKit framework, this code will also work in the iOS simulator,
 using the SimStoreKit simulator library.
 
 CLONING
@@ -11,8 +16,8 @@ $ git submodule update
 
 NOTE:
 
-Products that have already been purchased are stored in the keyring.
+Products that have already been purchased are stored in the device keychain.
 For testing purchases, these entries are wiped whenever the test app
-starts. Do not do this in production code.
+starts. Do not do this in production code!
 
 
