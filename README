@@ -1,5 +1,5 @@
-This project will connect to the app store's in app purchase service,
-and allow your app to purchase products, and manage already purchased products.
+This code will allow your app to connect to the app store's in app purchase service,
+and to purchase products, and manage already purchased products.
 
 I've also added some bells and whistles, like a progress bar for user feedback while the purchase
 is in progress.
